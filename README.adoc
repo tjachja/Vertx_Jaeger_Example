@@ -1,0 +1,67 @@
+= Vert.x Jaeger Example
+
+This project is an example Vert.x Application utilizing the OpenTracing API to obtain application performance monitoring with Jaeger.
+
+== Prerequisites
+
+* Docker
+* Apache Maven
+* JDK 8+
+
+== Getting started
+
+Start Docker daemon. 
+----
+$ systemctl start Docker
+----
+
+All-in-one is an executable designed for quick local testing, launches the Jaeger UI, collector, query, and agent, with an in memory storage component.
+
+The simplest way to start the all-in-one is to use the pre-built image published to DockerHub (a single command line).
+
+----
+$ docker run -d --name jaeger \
+  -e COLLECTOR_ZIPKIN_HTTP_PORT=9411 \
+  -p 5775:5775/udp \
+  -p 6831:6831/udp \
+  -p 6832:6832/udp \
+  -p 5778:5778 \
+  -p 16686:16686 \
+  -p 14268:14268 \
+  -p 9411:9411 \
+  jaegertracing/all-in-one:1.7
+----
+See Jaeger Tracing link:https://www.jaegertracing.io/docs/1.7/getting-started[Getting Started Guide] for more information.
+
+After executing the docker run command navigate to http://localhost:16686 to access the Jaeger UI.
+
+Create your project with:
+
+[source]
+
+----
+git clone https://github.com/tjachja/Jaeger_Vertx_example.git PROJECT_NAME
+----
+
+Replace `PROJECT_NAME` with the name of your project.
+
+== Running the project
+
+Once you have retrieved the project, you can check that everything works with:
+
+[source]
+
+----
+mvn clean install -DskipTests
+mvn exec:java
+----
+
+The command compiles the project and runs the tests, then  it launches the application, so you can check by yourself. Open your browser to http://localhost:8083. You should see a _Hello World_ message.
+
+== Anatomy of the project
+
+The project contains:
+
+* a `pom.xml` file
+* a _main_ verticle file (src/main/java/io/vertx/starter/MainVerticle.java)
+* an unit test (src/main/test/io/vertx/starter/MainVerticleTest.java)
