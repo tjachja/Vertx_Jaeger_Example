@@ -40,10 +40,8 @@ Create your project with:
 [source]
 
 ----
-git clone https://github.com/tjachja/Jaeger_Vertx_example.git PROJECT_NAME
+git clone https://github.com/tjachja/Vertx_Jaeger_Example.git 
 ----
-
-Replace `PROJECT_NAME` with the name of your project.
 
 == Running the project
 
