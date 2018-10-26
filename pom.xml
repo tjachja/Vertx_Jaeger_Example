@@ -11,7 +11,7 @@
 
   <properties>
     <vertx.version>3.5.2</vertx.version>
-    <main.verticle>io.vertx.starter.MainVerticle</main.verticle>
+      <main.verticle>io.vertx.verticles.MainVerticle</main.verticle>
   </properties>
 
   <dependencyManagement>
@@ -47,6 +47,11 @@
     	<artifactId>jaeger-client</artifactId>
     	<version>0.31.0</version>
     </dependency>
+      <dependency>
+          <groupId>org.apache.httpcomponents</groupId>
+          <artifactId>httpclient</artifactId>
+          <version>4.5</version>
+      </dependency>
   </dependencies>
 
   <build>

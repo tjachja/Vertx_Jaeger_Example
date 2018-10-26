@@ -1,10 +1,10 @@
-package io.vertx.starter;
+package io.vertx.verticles;
 
+import io.jaegertracing.Configuration;
 import io.opentracing.Span;
 import io.opentracing.Tracer;
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.http.HttpServerRequest;
-import io.jaegertracing.Configuration;
 
 public class WebVerticle extends AbstractVerticle {
 	Configuration configuration = new Configuration("Webserver-Service");

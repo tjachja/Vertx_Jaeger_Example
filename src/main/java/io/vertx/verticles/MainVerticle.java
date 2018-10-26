@@ -1,15 +1,16 @@
-package io.vertx.starter;
+package io.vertx.verticles;
+
+import io.vertx.core.AbstractVerticle;
+import io.vertx.core.Vertx;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-import io.vertx.core.AbstractVerticle;
-import io.vertx.core.Vertx;
 
 public class MainVerticle extends AbstractVerticle {
 	@Override
-    public void start() throws InterruptedException {
+    public void start() {
 
         /** Count of services. */
         final AtomicInteger serviceCount = new AtomicInteger();
